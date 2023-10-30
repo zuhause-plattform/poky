@@ -2,3 +2,8 @@ Django>4.2,<4.3
 beautifulsoup4>=4.4.0
 pytz
 django-log-viewer==1.1.7
+pytest==7.4.2
+pytest-django==4.5.2
+pytest-env==1.1.0
+pytest-html==4.0.2
+pytest-metadata==3.0.0
