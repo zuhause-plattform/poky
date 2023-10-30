@@ -1389,9 +1389,6 @@ class Machine(models.Model):
         return "Machine " + self.name + "(" + self.description + ")"
 
 
-
-
-
 class BitbakeVersion(models.Model):
 
     name = models.CharField(max_length=32, unique = True)
@@ -1838,12 +1835,14 @@ class LogMessage(models.Model):
     def __str__(self):
         return force_bytes('%s %s %s' % (self.get_level_display(), self.message, self.build))
 
+
 def invalidate_cache(**kwargs):
     from django.core.cache import cache
     try:
       cache.clear()
     except Exception as e:
       logger.warning("Problem with cache backend: Failed to clear cache: %s" % e)
+
 
 def signal_runbuilds():
     """Send SIGUSR1 to runbuilds process"""
@@ -1853,6 +1852,9 @@ def signal_runbuilds():
             os.kill(int(pidf.read()), SIGUSR1)
     except FileNotFoundError:
         logger.info("Stopping existing runbuilds: no current process found")
+    except ProcessLookupError:
+        pass
+
 
 class Distro(models.Model):
     search_allowed_fields = ["name", "description", "layer_version__layer__name"]
