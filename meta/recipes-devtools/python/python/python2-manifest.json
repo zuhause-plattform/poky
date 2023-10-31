@@ -109,7 +109,7 @@
             "core"
         ], 
         "files": [
-            "${bindir}/2to3", 
+            "${bindir}/2to3*",
             "${libdir}/python2.7/lib2to3"
         ]
     }, 
@@ -267,6 +267,7 @@
             "${libdir}/python2.7/lib-dynload/xreadlines.so", 
             "${libdir}/python2.7/linecache.py", 
             "${libdir}/python2.7/new.py", 
+            "${libdir}/python2.7/ntpath.py",
             "${libdir}/python2.7/os.py", 
             "${libdir}/python2.7/platform.py", 
             "${libdir}/python2.7/posixpath.py", 
@@ -1056,6 +1057,7 @@
             "core"
         ], 
         "files": [
+            "${libdir}/python${PYTHON_MAJMIN}/lib-dynload/_tkinter.so",
             "${libdir}/python2.7/lib-tk"
         ]
     }, 
@@ -1121,7 +1123,8 @@
         ], 
         "files": [
             "${libdir}/python2.7/DocXMLRPCServer.py", 
-            "${libdir}/python2.7/SimpleXMLRPCServer.py"
+            "${libdir}/python2.7/SimpleXMLRPCServer.py", 
+            "${libdir}/python2.7/xmlrpclib.py"
         ]
     }, 
     "zlib": {
