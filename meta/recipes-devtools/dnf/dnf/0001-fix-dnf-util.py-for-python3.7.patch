@@ -1,0 +1,33 @@
+From acd3f9b300fcd7319a83d09c24bcf252d0bb82b1 Mon Sep 17 00:00:00 2001
+From: Yocto thud <yocto@thud.de>
+Date: Thu, 2 Nov 2023 08:33:27 +0000
+Subject: [PATCH] fix dnf/util.py for python3.7
+
+---
+ dnf/util.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/dnf/util.py b/dnf/util.py
+index 9726339e7..8d32bd09c 100644
+--- a/dnf/util.py
++++ b/dnf/util.py
+@@ -39,6 +39,7 @@ import subprocess
+ import sys
+ import tempfile
+ import time
++import errno
+ 
+ logger = logging.getLogger('dnf')
+ 
+@@ -120,7 +121,7 @@ def ensure_dir(dname):
+     try:
+         os.makedirs(dname, mode=0o755)
+     except OSError as e:
+-        if e.errno != os.errno.EEXIST or not os.path.isdir(dname):
++        if e.errno != errno.EEXIST or not os.path.isdir(dname):
+             raise e
+ 
+ def empty(iterable):
+-- 
+2.17.1
+
