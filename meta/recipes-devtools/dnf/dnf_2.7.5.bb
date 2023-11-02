@@ -10,6 +10,7 @@ SRC_URI = "git://github.com/rpm-software-management/dnf.git \
            file://0005-Do-not-prepend-installroot-to-logdir.patch \
            file://0029-Do-not-set-PYTHON_INSTALL_DIR-by-running-python.patch \
            file://0030-Run-python-scripts-using-env.patch \
+           file://0001-fix-dnf-util.py-for-python3.7.patch \
            "
 
 SRCREV = "564c44667c7014843fa6f1732621093114ec59b2"
